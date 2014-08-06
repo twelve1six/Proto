@@ -11,8 +11,15 @@ class p_proto_c extends CI_Controller {
 	public function index() {
 		// $this->load->view('test');
 		$this->load->view('P_head_v');		
-		$this->load->view('P_main_v');
+		$this->load->view('P_sample_v');
 		$this->load->view('P_footer_v');
 	}
 	
+	public function login() {
+		$this->load->view('P_head_v');			
+		$this->load->view('P_menu_v');
+		$this->load->view('P_Blogin_v');
+		$this->load->view('P_login_v');
+		$this->load->view('P_footer_v');
+	}
 }
