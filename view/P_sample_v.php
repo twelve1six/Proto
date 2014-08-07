@@ -3,7 +3,7 @@
 			iPIMS
 		</div>
 		<div class="login_m">
-			Log in
+			Log In
 		</div>
 	<div class ="menu_w">
 

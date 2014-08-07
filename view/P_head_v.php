@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html>
+<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 		<style type="text/css">
@@ -11,14 +11,14 @@
 				height: 100%;
 			}
 			ul {
-				padding-left: 0px;
+				padding-left: 30px;
 				list-style: none;
 				display: inline-block;
 				vertical-align: middle;
 			}
 			li {
 				list-style: none;
-				padding-top: 5px;				
+				padding-top: 5px;
 			}
 			.menu_b {
 				width: auto;
@@ -55,21 +55,21 @@
 				width: 1004px;
 				margin: 0 auto;
 			}
-			
+
 			.logo_m {
 				float: left;
 				width: 161px;
 				height: 60px;
-				text-align:center;
+				text-align: center;
 				font-size: 30px;
-				line-height:60px;			
+				line-height: 60px;
 			}
 			.login_m {
 				float: left;
 				width: 126px;
 				height: 60px;
-				text-align:center;
-				line-height:60px;
+				text-align: center;
+				line-height: 60px;
 				font-size: 13px;
 				font-weight: lighter;
 				font-family: 새굴림;
@@ -78,70 +78,70 @@
 				float: left;
 				width: 83px;
 				height: 60px;
-				text-align:center;
-				line-height:60px;
+				text-align: center;
+				line-height: 60px;
 			}
 			.ReportSearch_m {
 				float: left;
 				width: 130px;
 				height: 60px;
-				text-align:center;
-				line-height:60px;
-				overflow-y:hidden;
+				text-align: center;
+				line-height: 60px;
+				overflow-y: hidden;
 			}
 			.PathologyReport_m {
 				float: left;
 				width: 155px;
 				height: 60px;
-				text-align:center;
-				line-height:60px;
-				overflow-y:hidden;
+				text-align: center;
+				line-height: 60px;
+				overflow-y: hidden;
 			}
 			.ImageSearch_m {
 				float: left;
 				width: 126px;
 				height: 60px;
-				text-align:center;
-				line-height:60px;
-				overflow-y:hidden;
+				text-align: center;
+				line-height: 60px;
+				overflow-y: hidden;
 			}
 			.PrivateLibrary_m {
 				float: left;
 				width: 143px;
 				height: 60px;
-				text-align:center;
-				line-height:60px;
-				overflow-y:hidden;
+				text-align: center;
+				line-height: 60px;
+				overflow-y: hidden;
 			}
 			.PublicLibrary_m {
 				float: left;
 				width: 123px;
 				height: 60px;
-				text-align:center;
-				line-height:60px;
-				overflow-y:hidden;
+				text-align: center;
+				line-height: 60px;
+				overflow-y: hidden;
 			}
 			.Messenger_m {
 				float: left;
 				width: 108px;
 				height: 60px;
-				text-align:center;
-				line-height:60px;
-				overflow-y:hidden;
+				text-align: center;
+				line-height: 60px;
+				overflow-y: hidden;
 			}
 			.SendReport_m {
 				float: left;
 				width: 118px;
 				height: 60px;
-				text-align:center;
-				line-height:60px;
-				overflow-y:hidden;
+				text-align: center;
+				line-height: 60px;
+				overflow-y: hidden;
 			}
 			.Banner {
 				float: left;
 				width: 1002px;
 				height: 40px;
-				line-height:40px;
+				line-height: 40px;
 			}
 			.SearchFilter {
 				float: left;
@@ -160,7 +160,7 @@
 				width: 550px;
 				height: 652px;
 				border: 1px solid #87CEFA;
-			}	
+			}
 			.login_b {
 				width: auto;
 				height: 502px;
@@ -171,9 +171,34 @@
 				margin: 0 auto;
 			}
 			.login {
-				width: 400px;	
-				height: 500px;			
-				border: 1px solid #87CEFA;
+				width: 400px;
+				height: 500px;
+				border: 1px solid blue;
+				
+				box-shadow: 0px 0px 4px blue;
+				-moz-box-shadow: 0px 0px 4px blue;
+				-webkit-box-shadow: 0px 0px 4px blue;
+			}
+			.login_title {
+				width: 400px;
+				height: 40px;
+				border-bottom: 1px solid blue;
+				line-height: 40px;
+				
+				color: #00008C;
+				font-size: 14px;
+				font-weight: bold;
+				font-family: 굴림;						
+			}
+			.login_body {
+				width: 400px;
+				height: 200px;
+				border-bottom: 1px solid blue;
+				
+				color: #00008C;
+				font-size: 14px;
+				font-weight: bold;
+				font-family: 굴림;	
 			}
 			.footer {
 				clear: both;
