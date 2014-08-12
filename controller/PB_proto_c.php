@@ -140,4 +140,8 @@ class PB_proto_c extends CI_Controller {
 		$this -> load -> view('PB_footer_v');
 	}
 
+	public function sampleD() {
+		$this -> load -> view('PB_sampleD_v');
+	}
+
 }

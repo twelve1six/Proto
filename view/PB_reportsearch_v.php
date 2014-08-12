@@ -58,3 +58,54 @@
 			Report Search
 		</div>
 	</div>
+<div class="searchfilter">
+ <div class="modal custom show">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+        <h4 class="modal-title">Search Filter</h4>
+         </div>
+         <div class="modal-body">
+          <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-primary">Search</button>
+        <button type="button" class="btn btn-primary">Search within results</button>
+        <button type="button" class="btn btn-primary">Clear</button>
+      </div>
+      </div>
+    </div>
+</div>
+   <!-- <div class="container-fluid">
+    <form action="" class="form-horizontal"  role="form">
+			<div class="form-group">
+                <label for="dtp_input2" class="col-md-2 control-label">Date Picking</label>
+                <div class="input-group date form_date col-md-3" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                    <input class="form-control" size="8" type="text" value="" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+				<input type="hidden" id="dtp_input2" value="" /><br/>
+            </div>
+    </form>
+</div>
+
+
+<script type="text/javascript" src="/jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/customize/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/customize/js/locales/bootstrap-datetimepicker.ko.js" charset="UTF-8"></script>
+<script type="text/javascript">
+	$('.form_date').datetimepicker({
+        //language:  'ko',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+</script>
+      -->

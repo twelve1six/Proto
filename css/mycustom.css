@@ -71,3 +71,18 @@
 	padding-left: 15%;
 }
 
+.searchfilter {
+	margin-top: 30%;
+}
+
+
+.modal.custom {
+    outline:none;
+    margin-top: 30%;
+    
+}
+
+.modal.custom .modal-dialog {
+    width:50%;
+    margin:0 auto;
+}
