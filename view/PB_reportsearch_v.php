@@ -19,16 +19,16 @@
 					<?php 
 						if($this->session->userdata('is_login')) {
 					?>		
-						<li class="active"><a href="/index.php/PB_proto_c/logout">Log Out</a></li>				
+						<li><a href="/index.php/PB_proto_c/logout">Log Out</a></li>				
 					<?php
 					} else {
 					?>
-						<li class="active"><a href="/index.php/PB_proto_c/login">Log In</a></li>				
+						<li><a href="/index.php/PB_proto_c/login">Log In</a></li>				
 					<?php
 					}
 					?>
 				<li> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; </li>
-				<li>
+				<li class="active">
 					<a href="/index.php/PB_proto_c/rsearch">Report Search</a>
 				</li>
 				<li>
@@ -52,3 +52,9 @@
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div> 
+	
+	<div class="container-fluid container-fluid-banner">
+		<div class="banner">
+			Report Search
+		</div>
+	</div>

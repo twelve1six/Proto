@@ -8,13 +8,6 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<!-- <ul class="dropdown-menu" role="menu">
-			<li><a href="#">Action</a></li>
-			<li><a href="#">Another action</a></li>
-			<li><a href="#">Something else here</a></li>
-			<li class="divider"></li>
-			<li><a href="#">Separated link</a></li>
-			</ul> -->
 			<p class="navbar-brand">
 				iPIMS
 			</p>
@@ -23,9 +16,17 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active">
-					<a href="/index.php/PB_proto_c/login">Log In</a>
-				</li>
+					<?php 
+						if($this->session->userdata('is_login')) {
+					?>		
+						<li class="active"><a href="/index.php/PB_proto_c/logout">Log Out</a></li>				
+					<?php
+					} else {
+					?>
+						<li class="active"><a href="/index.php/PB_proto_c/login">Log In</a></li>				
+					<?php
+					}
+					?>
 				<li> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; </li>
 				<li>
 					<a href="/index.php/PB_proto_c/rsearch">Report Search</a>
@@ -50,7 +51,7 @@
 				</li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
-	</div>
+	</div> 
 	<div class="container-fluid container-fluid-banner">
 		<div class="banner">
 			Log In

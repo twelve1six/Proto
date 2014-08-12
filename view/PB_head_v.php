@@ -10,3 +10,6 @@
     
     </head>
 		<body>
+			<!-- <?php 
+				var_dump($this->session->flashdata('message'));
+			?> -->

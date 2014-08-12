@@ -5,9 +5,9 @@ class PB_proto_m extends CI_Model {
 		parent::__construct();
 	}
 	
-	function ckuser($userid, $userpw) {
-		// $this->db->get_where();
-		// get_where('TEST',array('id'=>$id))->row($fcode);	
-	}
-	
+	function userpw($userid) {
+		$pw_column = 2;
+		$dbpw = $this->db->get_where('Userinfo',array('id'=>$userid))->row($pw_column);
+		return $dbpw->pw;		
+	}	
 }

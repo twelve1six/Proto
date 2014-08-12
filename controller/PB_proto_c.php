@@ -13,11 +13,11 @@ class PB_proto_c extends CI_Controller {
 	public function index() {
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_menu_v');
+		$this -> load -> view('PB_banner_v');
 		$this -> load -> view('PB_footer_v');
 	}
 
 	public function login() {
-		$this -> load -> view('PB_head_v');
 		$this -> load -> helper('form');
 		$this -> load -> library('form_validation');
 
@@ -26,79 +26,117 @@ class PB_proto_c extends CI_Controller {
 		$this -> form_validation -> set_rules('userpw', 'Password', 'required');
 
 		if ($this -> form_validation -> run() == FALSE) {
+			
+			$this -> load -> view('PB_head_v');
 			$this -> load -> view('PB_login_v');
+			$this -> load -> view('PB_footer_v');
 		} else {
-			//$this->load->view('formsuccess');
-			redirect('/PB_proto_c/login'); 
-			$this -> PB_proto_m -> ckuser($this -> input -> post('userid'), $this -> input -> post('userpw'));
-			echo "Success";
-
+			redirect('/PB_proto_c/authentication'); 
 		}
 
-		$this -> load -> view('PB_footer_v');
-
-		echo $this -> input -> post('userid');
-		echo ",";
-		echo $this -> input -> post('userpw');
+		// $this -> load -> view('PB_footer_v');
+	}
+	
+	public function logout() {
+		$this->session->sess_destroy();
+		redirect('/PB_proto_c/login');		
 	}
 
 	public function authentication() {
-		$authentication = $this-> config -> item('authentication');
-		//check id, pw is right or wrong
-		if($this->input->post('userid') == $authentication['userid'] && 
-		$this->input->post('userpw') == $authentication['userpw']) {
-			$this->session->set_userdata('is_login',true);
-			redirect('/PB_proto_c/login');
+		$postid = $this -> input -> post('userid');
+		$postpw = $this -> input -> post('userpw');
+		$dbpw = $this -> PB_proto_m -> userpw($this -> input -> post('userid'));
+		//var_dump($chkuser); ckuser
+		echo $postid;
+		echo $postpw;
+		echo $dbpw;
+				if(strcmp($dbpw,$postpw) == 0) {
+					echo "1Log in Success";
+					$this->session->set_userdata('is_login',true);
+					echo strcmp($dbpw,$postpw);
+					redirect('/PB_proto_c/');
+				}
+				else {
+					$this->session->set_flashdata('message','Login Failed');
+					echo "Log in Failed";
+					echo strcmp($dbpw,$postpw);
+					redirect('/PB_proto_c/login');
+				}
 		}
-		else {
-			echo "error";
-		}
-	}
-
 	public function rsearch() {
 
-		if (true) {
+		if ($this->session->userdata('is_login') == FALSE) {
+			$this -> load -> helper('url');
+			redirect('/PB_proto_c/login');
+		}
+		$this -> load -> view('PB_head_v');
+		$this -> load -> view('PB_reportsearch_v');
+		$this -> load -> view('PB_footer_v');
+	}
+
+	public function preport() {
+		if ($this->session->userdata('is_login') == FALSE) {
 			$this -> load -> helper('url');
 			redirect('/PB_proto_c/login');
 		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_menu_v');
-		$this -> load -> view('PB_footer_v');
-	}
-
-	public function preport() {
-		$this -> load -> view('PB_head_v');
-		$this -> load -> view('PB_menu_v');
+		$this -> load -> view('PB_banner_v');
 		$this -> load -> view('PB_footer_v');
 	}
 
 	public function isearch() {
+		if ($this->session->userdata('is_login') == FALSE) {
+			$this -> load -> helper('url');
+			redirect('/PB_proto_c/login');
+		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_menu_v');
+		$this -> load -> view('PB_banner_v');
 		$this -> load -> view('PB_footer_v');
 	}
 
 	public function prvlibrary() {
+		if ($this->session->userdata('is_login') == FALSE) {
+			$this -> load -> helper('url');
+			redirect('/PB_proto_c/login');
+		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_menu_v');
+		$this -> load -> view('PB_banner_v');
 		$this -> load -> view('PB_footer_v');
 	}
 
 	public function Pbllibrary() {
+		if ($this->session->userdata('is_login') == FALSE) {
+			$this -> load -> helper('url');
+			redirect('/PB_proto_c/login');
+		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_menu_v');
+		$this -> load -> view('PB_banner_v');
 		$this -> load -> view('PB_footer_v');
 	}
 
 	public function messenger() {
+		if ($this->session->userdata('is_login') == FALSE) {
+			$this -> load -> helper('url');
+			redirect('/PB_proto_c/login');
+		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_menu_v');
+		$this -> load -> view('PB_banner_v');
 		$this -> load -> view('PB_footer_v');
 	}
 
 	public function sreport() {
+		if ($this->session->userdata('is_login') == FALSE) {
+			$this -> load -> helper('url');
+			redirect('/PB_proto_c/login');
+		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_menu_v');
+		$this -> load -> view('PB_banner_v');
 		$this -> load -> view('PB_footer_v');
 	}
 
