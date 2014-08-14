@@ -71,18 +71,80 @@
 	padding-left: 15%;
 }
 
-.searchfilter {
-	margin-top: 30%;
-}
 
 
 .modal.custom {
     outline:none;
-    margin-top: 30%;
+    margin-top: 10%;
+    left: 30%;
     
 }
 
 .modal.custom .modal-dialog {
     width:50%;
     margin:0 auto;
+}
+
+.filter_title {
+	font-size: 20px;	
+}
+
+.fixed {
+	position: fixed;
+}
+
+.search_filter {
+	position: fixed;
+}
+
+.hospital {
+	margin-left: 8px;
+}
+
+.date_from {
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: -10px;
+}
+
+.date {
+	margin-left: 5px;
+	margin-bottom: -10px;
+}
+
+.dateto {
+	margin-left: -36px;
+}
+
+.dropmenu {
+	text-align: center;
+}
+
+.t {
+	margin-left: 15px;
+}
+
+.m {
+	margin-left: -4px;
+}
+
+.p {
+	margin-left: -4px;
+}
+
+.search {
+	
+}
+
+.search_in_result {
+	margin-left: 6px;	
+}
+
+.clear {
+	margin-left: 8px;
+}
+
+.categoryM {
+	margin-left: -15%;
+	/*margin-left: -150px;*/
 }
