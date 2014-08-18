@@ -158,3 +158,51 @@
 	font-size: 20px;
 	margin-top: -2%;
 }
+
+.pathology_resultM {
+	margin-left: -10%;
+}
+
+.library_buttons {
+	margin-top: 32%
+}
+
+.library_buttons2 {
+	margin-left: -26%;
+}
+
+.pathology_result_title {
+	font-size: 20px;	
+}
+
+.search_filter_window {
+	margin-right: -10%
+}
+
+.from_label {
+	margin-left: -4%;
+}
+
+.from_date {
+	margin-left: -1%;
+}
+
+.to_label {
+	margin-left: 31%;
+}
+
+.to_date {
+	margin-left: -9%;
+}
+
+.category_title {
+	font-size: 20px;
+}
+
+.toolbar_position {
+	margin-left: 43%;
+	margin-top: -3%;
+}
+
+
+
