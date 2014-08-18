@@ -145,6 +145,16 @@
 }
 
 .categoryM {
-	margin-left: -15%;
+	margin-left: -16%;
 	/*margin-left: -150px;*/
+}
+
+.categoryB {
+	margin-top: 3%;
+	text-align: center;
+}
+
+.list_title {
+	font-size: 20px;
+	margin-top: -2%;
 }

@@ -64,7 +64,7 @@ if($this->session->userdata('is_login')) {
 		&nbsp;
 	</div>
 
-	<div class="col-md-5 col-md-offset-1">
+	<div class="col-md-5">
 		<div class="filter_title col-md-offset-1">
 			Search Filter</br>
 		</div>
@@ -131,16 +131,16 @@ if($this->session->userdata('is_login')) {
 								</button>
 								<ul class="dropdown-menu pull-right dropmenu">
 									<li>
-										<a href="#">Seoul Univ.</a>
+										<a href="#"> <span class="badge pull-right">4</span> Seoul Univ.</a>
 									</li>
 									<li>
-										<a href="#">Ajou Univ.</a>
+										<a href="#"> <span class="badge pull-right">3</span> Ajou Univ.</a>
 									</li>
 									<li>
-										<a href="#">Busan Univ.</a>
+										<a href="#"> <span class="badge pull-right">2</span> Busan Univ.</a>
 									</li>
 									<li>
-										<a href="#">Donga Univ.</a>
+										<a href="#"> <span class="badge pull-right">1</span> Donga Univ.</a>
 									</li>
 								</ul>
 							</div>
@@ -148,38 +148,11 @@ if($this->session->userdata('is_login')) {
 					</div>
 				</div>
 
-				<span class="label label-primary">Patology Number</span>
+				<span class="label label-primary">Pathology Number</span>
 				<div class="form-group">
 					<div class="col-md-4">
 						<input type="text" class="form-control" id="pathologyNum" placeholder="Pathology Number">
 					</div>
-
-					<!-- Split button -->
-					<!-- <div class="btn-group dropdown-toggle col-md-offset-1 hospital" >
-					<button type="button" class="btn btn-primary dropdown-toggle">
-					Hospital
-					</button>
-					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-					<span class="caret"></span>
-					<span class="sr-only">Toggle Dropdown</span>
-					</button>
-					<ul class="dropdown-menu" role="menu">
-					<li>
-					<a href="#">Seoul Univ.</a>
-					</li>
-					<li>
-					<a href="#">Ajou Univ.</a>
-					</li>
-					<li>
-					<a href="#">Busan Univ.</a>
-					</li>
-					<li>
-					<a href="#">Donga Univ.</a>
-					</li>
-					<li class="divider"></li>
-					<li><a href="#">Separated link</a></li>
-					</ul>
-					</div> -->
 				</div>
 				<span class="label label-primary">Doctor</span>
 				<div class="form-group">
@@ -241,29 +214,214 @@ if($this->session->userdata('is_login')) {
 
 		</div>
 	</div>
-	
+
 	<div class="col-md-6 categoryM">
 		<div class="filter_title">
 			Category</br>
 		</div>
+
+		<div class ="btn-toolbar categoryB" select multiple="multiple">
+			<div class="btn-group" select multiple="multiple">
+				<button type="button" class = "btn btn-primary">
+					ALL
+				</button>
+				<button type="button" class = "btn btn-primary">
+					S
+				</button>
+				<button type="button" class = "btn btn-primary">
+					C
+				</button>
+			</div>
+			<div class="btn-group">
+				<button type="button" class = "btn btn-primary">
+					P
+				</button>
+				<button type="button" class = "btn btn-primary">
+					AC
+				</button>
+				<button type="button" class = "btn btn-primary">
+					PC
+				</button>
+			</div>
+			<div class="btn-group">
+				<button type="button" class = "btn btn-primary">
+					PA
+				</button>
+				<button type="button" class = "btn btn-primary">
+					M
+				</button>
+				<button type="button" class = "btn btn-primary">
+					IF
+				</button>
+				<button type="button" class = "btn btn-primary">
+					E
+				</button>
+				<button type="button" class = "btn btn-primary">
+					RC
+				</button>
+				<button type="button" class = "btn btn-primary">
+					CA
+				</button>
+			</div>
+		</div>
+		<table class="table table-bordered table-hover table-condensed">
+			<tr>
+				<th>Pathology&nbsp;Number</th>
+				<th>G</th>
+				<th>M</th>
+				<th>V</th>
+				<th>Register&nbsp;Number</th>
+				<th>&nbsp;Name&nbsp;</th>
+				<th>Gender</th>
+				<th>Age</th>
+				<th>&nbsp;Birth&nbsp;Date&nbsp;</th>
+				<th>Reception&nbsp;Date</th>
+				<th>Result&nbsp;Date</th>
+				<th>&nbsp;&nbsp;Doctor&nbsp;&nbsp;</th>
+			</tr>
+			
+				<?php
+				//translate mark and space of string for html 
+				$msg = '<동결절편> 동결절편 조직은 1.0*0.6*0.5cm and 1.2 * 0.6 * 0.5cm 크기의 림프절 2개임.';
+				$msg = htmlspecialchars($msg, ENT_NOQUOTES);				
+				$tooltip = str_replace(" ", "&nbsp;", $msg);
+			echo '<tr rel="tooltip" data-placement="right" data-original-title=' . $tooltip . ' data-container="body">';
+		?>
+			<td>F 13-0000041</td>
+			<td>5</td>
+			<td>1</td>
+			<td>0</td>
+			<td>14761861</td>
+			<td>장필순</td>
+			<td>F</td>
+			<td>59</td>
+			<td>1953-09-02</td>
+			<td>2013-04-04 16:07</td>
+			<td>2013-04-12 14:18</td>
+			<td>찰리/유먼</td>
+			</tr>
+
+			<?php $tooltip = 'blahblah';
+			echo '<tr rel="tooltip" data-placement="right" data-original-title=' . $tooltip . ' data-container="body">';
+		?>
+			<td>G 13-0000041</td>
+			<td>5</td>
+			<td>1</td>
+			<td>0</td>
+			<td>14761861</td>
+			<td>이이언</td>
+			<td>F</td>
+			<td>59</td>
+			<td>1953-09-02</td>
+			<td>2013-04-04 16:07</td>
+			<td>2013-04-12 14:18</td>
+			<td>찰리</td>
+
+			</tr>
+			<?php $tooltip = 'blahblah';
+			echo '<tr rel="tooltip" data-placement="right" data-original-title=' . $tooltip . ' data-container="body">';
+		?>
+			<td>G 13-0000041</td>
+			<td>5</td>
+			<td>1</td>
+			<td>0</td>
+			<td>14761861</td>
+			<td>이이언</td>
+			<td>F</td>
+			<td>59</td>
+			<td>1953-09-02</td>
+			<td>2013-04-04 16:07</td>
+			<td>2013-04-12 14:18</td>
+			<td>찰리</td>
+
+			</tr>
+			<?php $tooltip = 'blahblah';
+			echo '<tr rel="tooltip" data-placement="right" data-original-title=' . $tooltip . ' data-container="body">';
+		?>
+			<td>G 13-0000041</td>
+			<td>5</td>
+			<td>1</td>
+			<td>0</td>
+			<td>14761861</td>
+			<td>이이언</td>
+			<td>F</td>
+			<td>59</td>
+			<td>1953-09-02</td>
+			<td>2013-04-04 16:07</td>
+			<td>2013-04-12 14:18</td>
+			<td>찰리</td>
+
+			</tr>
+			<?php $tooltip = 'blahblah';
+			echo '<tr rel="tooltip" data-placement="right" data-original-title=' . $tooltip . ' data-container="body">';
+		?>
+			<td>G 13-0000041</td>
+			<td>5</td>
+			<td>1</td>
+			<td>0</td>
+			<td>14761861</td>
+			<td>이이언</td>
+			<td>F</td>
+			<td>59</td>
+			<td>1953-09-02</td>
+			<td>2013-04-04 16:07</td>
+			<td>2013-04-12 14:18</td>
+			<td>찰리</td>
+
+			</tr>
+			<?php $tooltip = 'blahblah';
+			echo '<tr rel="tooltip" data-placement="right" data-original-title=' . $tooltip . ' data-container="body">';
+		?>
+			<td>G 13-0000041</td>
+			<td>5</td>
+			<td>1</td>
+			<td>0</td>
+			<td>14761861</td>
+			<td>이이언</td>
+			<td>F</td>
+			<td>59</td>
+			<td>1953-09-02</td>
+			<td>2013-04-04 16:07</td>
+			<td>2013-04-12 14:18</td>
+			<td>찰리</td>
+
+			</tr>
+			<?php $tooltip = 'blahblah';
+			echo '<tr rel="tooltip" data-placement="right" data-original-title=' . $tooltip . ' data-container="body">';
+		?>
+			<td>G 13-0000041</td>
+			<td>5</td>
+			<td>1</td>
+			<td>0</td>
+			<td>14761861</td>
+			<td>이이언</td>
+			<td>F</td>
+			<td>59</td>
+			<td>1953-09-02</td>
+			<td>2013-04-04 16:07</td>
+			<td>2013-04-12 14:18</td>
+			<td>찰리</td>
+
+			</tr>
+			<?php
+			$tooltip = 'blahblah';
+			echo '<tr rel="tooltip" data-placement="right" data-original-title=' . $tooltip . ' data-container="body">';
+		?>
+			<td>G 13-0000041</td>
+			<td>5</td>
+			<td>1</td>
+			<td>0</td>
+			<td>14761861</td>
+			<td>이이언</td>
+			<td>F</td>
+			<td>59</td>
+			<td>1953-09-02</td>
+			<td>2013-04-04 16:07</td>
+			<td>2013-04-12 14:18</td>
+			<td>찰리</td>
+
+			</tr>
+
+		</table>
 	</div>
-
-	<script type="text/javascript" src="/jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
-	<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/customize/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-	<!-- <script type="text/javascript" src="/customize/js/locales/bootstrap-datetimepicker.ko.js" charset="UTF-8"></script> -->
-	<script type="text/javascript">
-		$('.form_date').datetimepicker({
-			//language:  'ko',
-			weekStart : 1,
-			todayBtn : 1,
-			autoclose : 1,
-			todayHighlight : 1,
-			startView : 2,
-			minView : 2,
-			forceParse : 0
-		});
-
-		$('.dropdown-toggle').dropdown();
-	</script>
 

@@ -38,6 +38,7 @@ class PB_proto_c extends CI_Controller {
 	}
 	
 	public function logout() {
+		//destory session for logout
 		$this->session->sess_destroy();
 		redirect('/PB_proto_c/login');		
 	}
@@ -65,6 +66,7 @@ class PB_proto_c extends CI_Controller {
 		}
 	public function rsearch() {
 
+		//if someone's not logged in yet, move to login page
 		if ($this->session->userdata('is_login') == FALSE) {
 			$this -> load -> helper('url');
 			redirect('/PB_proto_c/login');
@@ -75,17 +77,20 @@ class PB_proto_c extends CI_Controller {
 	}
 
 	public function preport() {
+		
+		//if someone's not logged in yet, move to login page
 		if ($this->session->userdata('is_login') == FALSE) {
 			$this -> load -> helper('url');
 			redirect('/PB_proto_c/login');
 		}
 		$this -> load -> view('PB_head_v');
-		$this -> load -> view('PB_menu_v');
-		$this -> load -> view('PB_banner_v');
+		$this -> load -> view('PB_pathologyreport_v');
 		$this -> load -> view('PB_footer_v');
 	}
 
 	public function isearch() {
+		
+		//if someone's not logged in yet, move to login page
 		if ($this->session->userdata('is_login') == FALSE) {
 			$this -> load -> helper('url');
 			redirect('/PB_proto_c/login');
@@ -97,6 +102,8 @@ class PB_proto_c extends CI_Controller {
 	}
 
 	public function prvlibrary() {
+		
+		//if someone's not logged in yet, move to login page
 		if ($this->session->userdata('is_login') == FALSE) {
 			$this -> load -> helper('url');
 			redirect('/PB_proto_c/login');
@@ -108,6 +115,8 @@ class PB_proto_c extends CI_Controller {
 	}
 
 	public function Pbllibrary() {
+		
+		//if someone's not logged in yet, move to login page
 		if ($this->session->userdata('is_login') == FALSE) {
 			$this -> load -> helper('url');
 			redirect('/PB_proto_c/login');
@@ -119,6 +128,8 @@ class PB_proto_c extends CI_Controller {
 	}
 
 	public function messenger() {
+		
+		//if someone's not logged in yet, move to login page
 		if ($this->session->userdata('is_login') == FALSE) {
 			$this -> load -> helper('url');
 			redirect('/PB_proto_c/login');
@@ -130,6 +141,8 @@ class PB_proto_c extends CI_Controller {
 	}
 
 	public function sreport() {
+		
+		//if someone's not logged in yet, move to login page
 		if ($this->session->userdata('is_login') == FALSE) {
 			$this -> load -> helper('url');
 			redirect('/PB_proto_c/login');

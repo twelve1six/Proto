@@ -10,6 +10,7 @@
     <link href="/customize/css/daterangepicker.css" rel="stylesheet" media="screen">
     <link href="/customize/css/datepicker.css" rel="stylesheet" media="screen">
     <link href="/customize/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link href="/customize/css/bootstrap-multiselect.css" rel="stylesheet" media="screen">
     
     </head>
 		<body>
