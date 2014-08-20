@@ -67,7 +67,7 @@ if($this->session->userdata('is_login')) {
 	<div class="col-md-3">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<div class="filter_title col-md-offset-1 panel-title">
+				<div class="filter_title panel-title">
 					Search Filter</br>
 				</div>
 			</div>
@@ -85,7 +85,7 @@ if($this->session->userdata('is_login')) {
 							<!-- <form class="form-inline" role="form"> -->
 							<!-- <label for="to_date" class="control-label"> &nbsp; </label> -->
 							<div class='input-group input-group-sm date form_date' id='from_date' data-date-format="yyyy-mm-dd" data-link-field="from_date" data-link-format="yyyy-mm-dd" >
-								<input type='text' class="form-control" size="8" placeholder="Date" />
+								<input type='text' class="form-control input-sm" size="8" placeholder="Date" />
 								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> </span>
 							</div>
 							
@@ -100,7 +100,7 @@ if($this->session->userdata('is_login')) {
 						<div class="form-group col-md-6 to_date">
 							<!-- <label for="to_date" class="control-label"> &nbsp; </label> -->
 							<div class='input-group input-group-sm date form_date' id='to_date' data-date-format="yyyy-mm-dd" data-link-field="to_date" data-link-format="yyyy-mm-dd">
-								<input type='text' class="form-control" size="8" placeholder="Date"/>
+								<input type='text' class="form-control input-sm" size="8" placeholder="Date"/>
 								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> </span>
 							</div>
 						</div>
@@ -115,14 +115,30 @@ if($this->session->userdata('is_login')) {
 				</div class="row"> &nbsp;
 				<div class="col-md-offset-1">
 					<form class="form-horizontal" role="form">
-
-						<span class="label label-primary">Hospital</span>
+					
 						<div class="form-group">
 							<div class="col-md-8">
+						<span class="label label-primary">Hospital</span>
+							<select class="form-control input-sm">
+								<option>
+									Seoul Univ. 
+									</option>
+								<option>
+									Ajou Univ.
+									</option>
+								<option>
+									Busan Univ.
+									</option>
+								<option>
+									Donga Univ.
+									</option>
+							</select>
+						</div>
+							<!-- <div class="col-md-8">
 								<div class="input-group">
-									<input type="text" class="form-control" id="hospital" placeholder="Hospital">
+									<input type="text" class="form-control input-sm" id="hospital" placeholder="Hospital">
 									<div class="input-group-btn">
-										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+										<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown">
 											<span class="caret"></span>
 										</button>
 										<ul class="dropdown-menu pull-right dropmenu">
@@ -141,52 +157,53 @@ if($this->session->userdata('is_login')) {
 										</ul>
 									</div>
 								</div>
-							</div>
-						</div>
+							</div> -->
+						</div> 
+						
 
 						<span class="label label-primary">Pathology Number</span>
 						<div class="form-group">
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="pathologyNum" placeholder="Pathology Number">
+								<input type="text" class="form-control input-sm" id="pathologyNum" placeholder="Pathology Number">
 							</div>
 						</div>
 						<span class="label label-primary">Doctor</span>
 						<div class="form-group">
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="doctor" placeholder="Doctor">
+								<input type="text" class="form-control input-sm" id="doctor" placeholder="Doctor">
 							</div>
 						</div>
 						<span class="label label-primary">Diagnosis</span>
 						<div class="form-group">
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="diagnosis" placeholder="Diagnosis">
+								<input type="text" class="form-control input-sm" id="diagnosis" placeholder="Diagnosis">
 							</div>
 						</div>
 						<div class="form-group form-inline">
 							<div class="input-group col-md-3 t">
 								<span class="input-group-addon">T</span>
-								<input type="text" class="form-control" id="T">
+								<input type="text" class="form-control input-sm" id="T">
 							</div>
 
 							<div class="input-group col-md-3 m">
 								<span class="input-group-addon">M</span>
-								<input type="text" class="form-control" id="M">
+								<input type="text" class="form-control input-sm" id="M">
 							</div>
 
 							<div class="input-group col-md-3 p">
 								<span class="input-group-addon">P</span>
-								<input type="text" class="form-control" id="P">
+								<input type="text" class="form-control input-sm" id="P">
 							</div>
 						</div>
 
 						<div class="btn-group">
-							<button type="submit" class="btn btn-primary">
+							<button type="submit" class="btn btn-primary btn-sm">
 								Search
 							</button>
-							<button type="submit" class="btn btn-primary">
+							<button type="submit" class="btn btn-primary btn-sm">
 								Search In Results
 							</button>
-							<button type="reset" class="btn btn-primary">
+							<button type="reset" class="btn btn-primary btn-sm">
 								Clear
 							</button>
 						</div>
@@ -251,7 +268,7 @@ if($this->session->userdata('is_login')) {
 				
 				</div>
 			<div class="panel-body">
-				
+				<div class="table-responsive">
 				<table class="table table-bordered table-hover table-condensed">
 					<tr>
 						<th>Pathology&nbsp;Number</th>
@@ -408,7 +425,80 @@ if($this->session->userdata('is_login')) {
 					<td>찰리</td>
 
 					</tr>
+						<?php
+					$tooltip = 'blahblah';
+					echo '<tr rel="tooltip" data-placement="right" data-original-title=' . $tooltip . ' data-container="body">';
+					?>
+					<td>G 13-0000041</td>
+					<td>5</td>
+					<td>1</td>
+					<td>0</td>
+					<td>14761861</td>
+					<td>이이언</td>
+					<td>F</td>
+					<td>59</td>
+					<td>1953-09-02</td>
+					<td>2013-04-04 16:07</td>
+					<td>2013-04-12 14:18</td>
+					<td>찰리</td>
+
+					</tr>
+						<?php
+					$tooltip = 'blahblah';
+					echo '<tr rel="tooltip" data-placement="right" data-original-title=' . $tooltip . ' data-container="body">';
+					?>
+					<td>G 13-0000041</td>
+					<td>5</td>
+					<td>1</td>
+					<td>0</td>
+					<td>14761861</td>
+					<td>이이언</td>
+					<td>F</td>
+					<td>59</td>
+					<td>1953-09-02</td>
+					<td>2013-04-04 16:07</td>
+					<td>2013-04-12 14:18</td>
+					<td>찰리</td>
+
+					</tr>
+						<?php
+					$tooltip = 'blahblah';
+					echo '<tr rel="tooltip" data-placement="right" data-original-title=' . $tooltip . ' data-container="body">';
+					?>
+					<td>G 13-0000041</td>
+					<td>5</td>
+					<td>1</td>
+					<td>0</td>
+					<td>14761861</td>
+					<td>이이언</td>
+					<td>F</td>
+					<td>59</td>
+					<td>1953-09-02</td>
+					<td>2013-04-04 16:07</td>
+					<td>2013-04-12 14:18</td>
+					<td>찰리</td>
+
+					</tr>
+					<?php
+					$tooltip = 'blahblah';
+					echo '<tr rel="tooltip" data-placement="right" data-original-title=' . $tooltip . ' data-container="body">';
+					?>
+					<td>G 13-0000041</td>
+					<td>5</td>
+					<td>1</td>
+					<td>0</td>
+					<td>14761861</td>
+					<td>이이언</td>
+					<td>F</td>
+					<td>59</td>
+					<td>1953-09-02</td>
+					<td>2013-04-04 16:07</td>
+					<td>2013-04-12 14:18</td>
+					<td>찰리</td>
+
+					</tr>
 				</table>
+				</div>
 			</div>
 		</div>
 	</div>

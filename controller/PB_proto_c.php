@@ -85,6 +85,12 @@ class PB_proto_c extends CI_Controller {
 		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_pathologyreport_v');
+		
+		//bring image(now, modify thumnail in view file *recommended save modified image later)
+		$id=14;
+		$fcode  = $this->PB_proto_m->getImage($id);
+		$this->load->view('PB_image_v',$fcode);
+		
 		$this -> load -> view('PB_footer_v');
 	}
 
@@ -96,8 +102,7 @@ class PB_proto_c extends CI_Controller {
 			redirect('/PB_proto_c/login');
 		}
 		$this -> load -> view('PB_head_v');
-		$this -> load -> view('PB_menu_v');
-		$this -> load -> view('PB_banner_v');
+		$this -> load -> view('PB_imagesearch_v');
 		$this -> load -> view('PB_footer_v');
 	}
 

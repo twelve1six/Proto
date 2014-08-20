@@ -9,8 +9,9 @@
 <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/customize/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="/customize/js/bootstrap-multiselect.js"></script>
-<!-- <script type="text/javascript" src="/customize/js/locales/bootstrap-datetimepicker.ko.js" charset="UTF-8"></script> -->
+<!-- <script type="text/javascript" src="/customize/js/acc-wizard.min.js"></script> -->
 <script type="text/javascript">
+	//calender plugin
 	$('.form_date').datetimepicker({
 		//language:  'ko',
 		weekStart : 1,
@@ -22,13 +23,28 @@
 		forceParse : 0
 	});
 
+	//dropdown plugin
 	$('.dropdown-toggle').dropdown();
 
-	// $(document).ready(function() {
+	//multiselect plugin maybe not work
 	$('.multiselect').multiselect();
-	// });
+
+	//tooltip plugin
 	$('[rel="tooltip"]').tooltip('toggle');
 	$('[rel="tooltip"]').tooltip('hide');
+
+	//accordian plugin
+	// $(window).load(function() {
+	// $(".acc-wizard").accwizard();
+	// });
+
+	//tap plugin
+
+	$('#myTab a').click(function(e) {
+		e.preventDefault()
+		$(this).tab('show')
+	})
+	
 
 </script>
 </body>

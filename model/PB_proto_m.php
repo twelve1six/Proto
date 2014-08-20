@@ -10,4 +10,12 @@ class PB_proto_m extends CI_Model {
 		$dbpw = $this->db->get_where('Userinfo',array('id'=>$userid))->row($pw_column);
 		return $dbpw->pw;		
 	}	
+
+	function getImage($id) {
+		//column number of fname on table 'TEST'
+		$fcode = 4;
+		
+		//return fcode of a row
+		return $this->db->get_where('TEST',array('id'=>$id))->row($fcode);	
+	}
 }

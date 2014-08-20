@@ -20,13 +20,17 @@
 				<?php
 if($this->session->userdata('is_login')) {
 				?>
-				<li><a href="/index.php/PB_proto_c/logout">Log Out</a></li>
+				<li>
+				<a href="/index.php/PB_proto_c/logout">Log Out</a>
+				</li>
 				<?php } else { ?>
 				<li>
 					<a href="/index.php/PB_proto_c/login">Log In</a>
 				</li>
 				<?php } ?>
-				<li> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; </li>
+				<li>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+				</li>
 				<li>
 				<a href="/index.php/PB_proto_c/rsearch">Report Search</a>
 				</li>
@@ -64,186 +68,227 @@ if($this->session->userdata('is_login')) {
 		&nbsp;
 	</div>
 
+	<div class="col-md-4">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="filter_title panel-title">
+					Pathologic Identification
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="col-md-5">
+					<form class="form-horizontal" role="form">
+						<!-- <span class="label label-primary">Pathology Number</span> -->
+						<!-- <div class="form-group form-inline"> -->
+						<!-- <div class="col-md-12"> -->
+						<div class="input-group">
+							<input type="text" class="form-control input-sm" id="pathologyNum" placeholder="Pathology Num">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-primary btn-sm">
+									&nbsp;EMR&nbsp;
+								</button> </span>
+						</div>
+						</br>
+						<!-- </div> -->
+						<!-- </div> -->
+						<!-- <span class="label label-primary">Reception Number</span> -->
+						<!-- <div class="form-group form-inline"> -->
+						<!-- <div class="col-md-12"> -->
+						<div class="input-group">
+							<input type="text" class="form-control input-sm" id="receptionNum" placeholder="Reception Num">
+
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-primary btn-sm">
+									PACS
+								</button> </span>
+							<!-- </div> -->
+						</div>
+						<!-- </div> -->
+				</div>
+				<div class="col-md-7">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover table-condensed">
+							<tr>
+								<th>&nbsp;Name&nbsp;</th>
+								<th>Age</th>
+								<th>Gender</th>
+								<th>Department</th>
+							</tr>
+							<tr>
+								<?php $name = '권봉귀';
+								$age = 43;
+								$gender = 'M';
+								$department = 'ORC';
+
+								echo '<td>' . $name . '</td>';
+								echo '<td>' . $age . '</td>';
+								echo '<td>' . $gender . '</td>';
+								echo '<td>' . $department . '</td>';
+								?>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="filter_title panel-title">
+					List
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover table-condensed">
+							<tr>
+								<th>Select</th>
+								<th>Pathology&nbsp;Number</th>
+								<th>Reception&nbsp;Date</th>
+								<th>Diagnosis</th>
+								<th>Data</th>
+							</tr>
+							<tr>
+								<td>
+								<input type="checkbox">
+								</td>
+								<?php $Pnum = 'F 13-0000041';
+									$Rdate = '2013-04-04';
+									$Diagnosis = 'M54.21 ';
+									$Data = 3;
+
+									echo '<td>' . $Pnum . '</td>';
+									echo '<td>' . $Rdate . '</td>';
+									echo '<td>' . $Diagnosis . '</td>';
+									echo '<td>' . $Data . '</td>';
+								?>
+							</tr>
+							<tr>
+								<td>
+								<input type="checkbox">
+								</td>
+								<?php $Pnum = 'F 13-0000041';
+									$Rdate = '2013-04-04';
+									$Diagnosis = 'M54.21 ';
+									$Data = 3;
+
+									echo '<td>' . $Pnum . '</td>';
+									echo '<td>' . $Rdate . '</td>';
+									echo '<td>' . $Diagnosis . '</td>';
+									echo '<td>' . $Data . '</td>';
+								?>
+							</tr>
+							<tr>
+								<td>
+								<input type="checkbox">
+								</td>
+								<?php $Pnum = 'F 13-0000041';
+									$Rdate = '2013-04-04';
+									$Diagnosis = 'M54.21 ';
+									$Data = 3;
+
+									echo '<td>' . $Pnum . '</td>';
+									echo '<td>' . $Rdate . '</td>';
+									echo '<td>' . $Diagnosis . '</td>';
+									echo '<td>' . $Data . '</td>';
+								?>
+							</tr>
+							<tr>
+								<td>
+								<input type="checkbox">
+								</td>
+								<?php $Pnum = 'F 13-0000041';
+									$Rdate = '2013-04-04';
+									$Diagnosis = 'M54.21 ';
+									$Data = 3;
+
+									echo '<td>' . $Pnum . '</td>';
+									echo '<td>' . $Rdate . '</td>';
+									echo '<td>' . $Diagnosis . '</td>';
+									echo '<td>' . $Data . '</td>';
+								?>
+							</tr>
+
+							<tr>
+								<td>
+								<input type="checkbox">
+								</td>
+								<?php $Pnum = 'F 13-0000041';
+									$Rdate = '2013-04-04';
+									$Diagnosis = 'M54.21 ';
+									$Data = 3;
+
+									echo '<td>' . $Pnum . '</td>';
+									echo '<td>' . $Rdate . '</td>';
+									echo '<td>' . $Diagnosis . '</td>';
+									echo '<td>' . $Data . '</td>';
+								?>
+							</tr>
+							<tr>
+								<td>
+								<input type="checkbox">
+								</td>
+								<?php $Pnum = 'F 13-0000041';
+									$Rdate = '2013-04-04';
+									$Diagnosis = 'M54.21 ';
+									$Data = 3;
+
+									echo '<td>' . $Pnum . '</td>';
+									echo '<td>' . $Rdate . '</td>';
+									echo '<td>' . $Diagnosis . '</td>';
+									echo '<td>' . $Data . '</td>';
+								?>
+							</tr>
+						</table>
+					</div>
+					</form>
+				</div>
+				<div class="btn-group col-md-offset-5">
+					<button type="button" class="btn btn-primary">
+						+ Public Library
+					</button>
+					<button type="button" class="btn btn-primary">
+						+ Private Library
+					</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
 	<div class="col-md-5">
-		<div class="filter_title col-md-offset-1">
-			Pathologic Identification</br>
-		</div>
-
-		<div class="row">
-			&nbsp;
-		</div>
-
-		<div class="col-md-offset-1">
-			<form class="form-horizontal" role="form">
-
-				<span class="label label-primary">Pathology Number</span>
-				<div class="form-group form-inline">
-					<div class="col-md-4">
-						<input type="text" class="form-control" id="pathologyNum" placeholder="Pathology Number">
-					</div>
-					<button type="submit" class="btn btn-primary">
-						&nbsp;EMR&nbsp;
-					</button>
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="pathology_result_title panel-title">
+					Pathologic Result</br>
 				</div>
-				<span class="label label-primary">Reception Number</span>
-				<div class="form-group form-inline">
-					<div class="col-md-4">
-						<input type="text" class="form-control" id="receptionNum" placeholder="Reception Number">
-					</div>
-					<button type="submit" class="btn btn-primary">
-						PACS
-					</button>
-				</div>
-				<div class="form-group col-md-4">
-					<table class="table table-bordered table-hover table-condensed">
-						<tr>
-							<th>&nbsp;Name&nbsp;</th>
-							<th>Age</th>
-							<th>Gender</th>
-							<th>Department</th>
-						</tr>
-						<tr>
-							<?php $name = '권봉귀';
-							$age = 43;
-							$gender = 'M';
-							$department = 'ORC';
+			</div>
+			<div class="panel-body">
+				<p class="text-left">
+					<?php
+					$report = '<병리검사 의뢰서 입력내용>
+1. 채취부위:
+2. 수술명:
+3. 임상진단:
 
-							echo '<td>' . $name . '</td>';
-							echo '<td>' . $age . '</td>';
-							echo '<td>' . $gender . '</td>';
-							echo '<td>' . $department . '</td>';
-							?>
-						</tr>
-					</table>
-				</div>
+<동결절편 진단>
 
-				<div class="row">
-					&nbsp;
-				</div>
-				<div class="filter_title">
-					List</br>
-				</div>
-				<div class="form-group col-md-4">
-					<table class="table table-bordered table-hover table-condensed">
-						<tr>
-							<!-- <th>Select</th> -->
-							<th>Pathology&nbsp;Number</th>
-							<th>Reception&nbsp;Date</th>
-							<th>Diagnosis</th>
-							<th>Data</th>
-						</tr>
-						<tr>
-							<?php $Pnum = 'F 13-0000041';
-							$Rdate = '2013-04-04';
-							$Diagnosis = 'M54.21 ';
-							$Data = 3;
+#1. 동결절편 조직은 6.0 * 1.0 * 0.5cm크기의 조직임.
+동결절편 진단 (#1) : Proximal margin : Presence of carcinoma /HJP/
+#2. 동결절편 조직은 1.2 * 1.0 * 0.5cm 크기의 조직임.
+동결절편 진단 (#2) : Proximal margin : Free of carcinoma /HJP/
 
-							echo '<td>' . $Pnum . '</td>';
-							echo '<td>' . $Rdate . '</td>';
-							echo '<td>' . $Diagnosis . '</td>';
-							echo '<td>' . $Data . '</td>';
-							?>
-						</tr>
-						<tr>
-							<?php $Pnum = 'F 13-0000041';
-							$Rdate = '2013-04-04';
-							$Diagnosis = 'M54.21 ';
-							$Data = 3;
+<육안소견>
+받은 조직은 모두 3부분임.
+#1. 신성 상태의 전 절제된 위장으로 구성된 위전 절제술 검체임. 검체는 두부분으로 나뉘어져 suture 되어 연결되어 왔음. 대만곡을 따라 열려져 왔으며 위장의 크기는 대만곡을 따라 22.0cm, 소만곡을 따라 14.0cm임. 연결된 십이지장의 길이는 1.5cm, 평균 내경 5.0cm임. 점막면에 전정부, 대만곡을 중심으로 궤양 침은형의 종	괴가 관찰됨. 종괴의 크기는 8.0cm * 8.0cm 이며 원위 절면으로부터 2.5cm, 근위 절면으로부터 6.0cm 떨어져 있음. 그 외 주변 점막에 궤양, 용종, 종괴 등의 다른 특이소견 관찰되지 않음. 연속 절개햐여 대표적 절편을 포매함.';
 
-							echo '<td>' . $Pnum . '</td>';
-							echo '<td>' . $Rdate . '</td>';
-							echo '<td>' . $Diagnosis . '</td>';
-							echo '<td>' . $Data . '</td>';
-							?>
-						</tr>
-						<tr>
-							<?php $Pnum = 'F 13-0000041';
-							$Rdate = '2013-04-04';
-							$Diagnosis = 'M54.21 ';
-							$Data = 3;
-
-							echo '<td>' . $Pnum . '</td>';
-							echo '<td>' . $Rdate . '</td>';
-							echo '<td>' . $Diagnosis . '</td>';
-							echo '<td>' . $Data . '</td>';
-							?>
-						</tr>
-						<tr>
-							<?php $Pnum = 'F 13-0000041';
-							$Rdate = '2013-04-04';
-							$Diagnosis = 'M54.21 ';
-							$Data = 3;
-
-							echo '<td>' . $Pnum . '</td>';
-							echo '<td>' . $Rdate . '</td>';
-							echo '<td>' . $Diagnosis . '</td>';
-							echo '<td>' . $Data . '</td>';
-							?>
-						</tr>
-						<tr>
-							<?php
-							$Pnum = 'F 13-0000041';
-							$Rdate = '2013-04-04';
-							$Diagnosis = 'M54.21 ';
-							$Data = 3;
-
-							echo '<td>' . $Pnum . '</td>';
-							echo '<td>' . $Rdate . '</td>';
-							echo '<td>' . $Diagnosis . '</td>';
-							echo '<td>' . $Data . '</td>';
-							?>
-						</tr>
-					</table>
-			</form>
+					//line feed
+					$report = nl2br($report);
+					//change 'tap' to 'space'
+					//$report = str_replace("	", "&nbsp; &nbsp; &nbsp; &nbsp; ", $report);
+					echo $report;
+					?>
+				</p>
+			</div>
 		</div>
-
-	</div>
-	<div class="btn-group library_buttons library_buttons2">
-		<button type="button" class="btn btn-primary">
-			Public Library
-		</button>
-		<button type="button" class="btn btn-primary">
-			Private Library
-		</button>
-	</div>
-	</div>
-
-	<div class="col-md-4 pathology_resultM">
-		<div class="pathology_result_title">
-			Pathologic Result</br>
-		</div>
-		<div class="row">
-			&nbsp;
-		</div>
-		<p class="text-left">
-		<?php 
-			$report = '<병리검사 의뢰서 입력내용>
-			1. 채취부위:
-			2. 수술명: 
-			3. 임상진단:
-			
-			<동결절편 진단>
-			
-			#1. 동결절편 조직은 6.0 * 1.0 * 0.5cm크기의 조직임.
-				동결절편 진단 (#1) : Proximal margin : Presence of carcinoma /HJP/
-			#2. 동결절편 조직은 1.2 * 1.0 * 0.5cm 크기의 조직임.
-				동결절편 진단 (#2) : Proximal margin : Free of carcinoma /HJP/
-				
-			<육안소견>
-			받은 조직은 모두 3부분임.
-			#1. 신성 상태의 전 절제된 위장으로 구성된 위전 절제술 검체임. 검체는 두부분으로 나뉘어져 suture 되어 연결되어 왔음. 대만곡을 따라 열려져 왔으며 위장의 크기는 대만곡을 따라 22.0cm, 소만곡을 따라 14.0cm임. 연결된 십이지장의 길이는 1.5cm, 평균 내경 5.0cm임. 점막면에 전정부, 대만곡을 중ㅅ미으로 궤양 침은형의 종	괴가 관찰됨. 종괴의 크기는 8.0cm * 8.0cm 이며 원위 절면으로부터 2.5cm, 근위 절면으로부터 6.0cm 떨어져 있음.';			
-				
-			//line feed	
-			$report = nl2br($report);
-			//change 'tap' to 'space'
-			//$report = str_replace("	", "&nbsp; &nbsp; &nbsp; &nbsp; ", $report);
-			echo $report;
-		?>
-		</p>
 	</div>
 	
-	<div class="col-md-4">
-		<div class="pathology_result_title">
-			Images</br>
-		</div>
-	</div>
