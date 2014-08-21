@@ -1,7 +1,7 @@
 <div class="col-md-3">
 
 	<!-- pills version -->
-	<ul class="nav nav-pills" id="myTab">
+	<ul class="nav nav-pills nav-justified" id="myTab">
 		<li class="active">
 			<a href="#grossImage">Gross Images</a>
 		</li>
@@ -9,7 +9,7 @@
 			<a href="#microImages">Micro Images</a>
 		</li>
 		<li>
-			<a href="#slideScan">1:1 Slide Scan</a>
+			<a href="#slideScan">Slide Scan</a>
 		</li>
 		<li>
 			<a href="#grossAnimation">Gross Animation</a>
@@ -26,7 +26,7 @@
 			$b64image = base64_encode($fcode);
 			$type = 'image/jpeg';
 
-			echo '<img src="data:' . $type . ';base64,' . $b64image . '" alt = "125*125" />';
+			echo '<img src="data:' . $type . ';base64,' . $b64image . '" alt = "90*90" />';
 			?></a>
 			
 			<a href="#" class="thumbnail">
@@ -34,7 +34,7 @@
 			$b64image = base64_encode($fcode);
 			$type = 'image/jpeg';
 
-			echo '<img src="data:' . $type . ';base64,' . $b64image . '" alt = "125*125" />';
+			echo '<img src="data:' . $type . ';base64,' . $b64image . '" alt = "90*90" />';
 			?></a>
 		</div>
 		<div class="tab-pane" id="microImages">

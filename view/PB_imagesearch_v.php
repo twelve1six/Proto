@@ -20,25 +20,21 @@
 				<?php
 if($this->session->userdata('is_login')) {
 				?>
-				<li>
-				<a href="/index.php/PB_proto_c/logout">Log Out</a>
-				</li>
+				<li><a href="/index.php/PB_proto_c/logout">Log Out</a></li>
 				<?php } else { ?>
 				<li>
 					<a href="/index.php/PB_proto_c/login">Log In</a>
 				</li>
 				<?php } ?>
-				<li>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-				</li>
+				<li> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; </li>
 				<li>
 				<a href="/index.php/PB_proto_c/rsearch">Report Search</a>
 				</li>
 				<li>
 				<a href="/index.php/PB_proto_c/preport">Pathology Report</a>
 				</li>
-				<li class="active">
-					<a href="/index.php/PB_proto_c/isearch">Image Search</a>
+				<li>
+				<a href="/index.php/PB_proto_c/isearch">Image Search</a>
 				</li>
 				<li>
 				<a href="/index.php/PB_proto_c/prvlibrary">Private Library</a>
@@ -49,9 +45,16 @@ if($this->session->userdata('is_login')) {
 				<li>
 				<a href="/index.php/PB_proto_c/messenger">Messenger</a>
 				</li>
-				<li>
-				<a href="/index.php/PB_proto_c/sreport">Send Report</a>
-				</li>
+				<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Send Report<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/index.php/PB_proto_c/sreport_mlclr">Molecular</a></li>
+            <li class="divider"></li>
+            <li><a href="/index.php/PB_proto_c/sreport_if">IF</a></li>
+            <li class="divider"></li>
+            <li><a href="/index.php/PB_proto_c/sreport_em">EM</a></li>
+          </ul>
+        </li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div>
@@ -243,59 +246,92 @@ if($this->session->userdata('is_login')) {
 		</div>
 	</div>
 	<div class="col-md-8">
-	<div class="panel panel-info">
-		<div class="panel-heading">
-			<div class="pathology_result_title panel-title">
-				List
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="pathology_result_title panel-title">
+					List
+				</div>
 			</div>
-		</div>
-		<div class="panel-body">
-			<div class="table-responsive">
-				<table class="table table-bordered table-hover table-condensed">
-					<tr>
-						<th>Pathologic Number</th>
-						<th>G</th>
-						<th>M</th>
-						<th>V</th>
-						<th>SNOMED result</th>
-						<th>Requested</th>
-						<th>Excution</th>
-						<th>Macrography</th>
-						<th>Sampled</th>
-						<th>Decipherment</th>
-						<th>Written</th>
-					</tr>
-					<tr>
-						<?php
-						$Pnum = 'S 13-0009582';
-						$G = 3;
-						$M = 1;
-						$V = 0;
-						$Sresult = 'gastric mucosa.scopic.carcinoma';
-						$requested = '2013-03-20';
-						$excution = '2013-03-20 11:17';
-						$macrography = '2013-03-20 11:17';
-						$sampled = '2013-03-20 11:17';
-						$decipherment = '2013-03-20 11:17';
-						$written = '2013-03-20 11:17';
-						
+			<div class="panel-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover table-condensed table-scrollable">
+							<tr>
+								<th>Pathologic Num</th>
+								<th>G</th>
+								<th>M</th>
+								<th>V</th>
+								<th>SNOMED result</th>
+								<th>Requested</th>
+								<th>Excution</th>
+								<th>Macrography</th>
+								<th>Sampled</th>
+								<th>Decipherment</th>
+								<th>Written</th>
+							</tr>
+							<tr>
+								<?php
+								$Pnum = 'S 13-0009582';
+								$G = 3;
+								$M = 1;
+								$V = 0;
+								$Sresult = 'gastric mucosa.scopic.carcinoma';
+								$requested = '2013-03-20';
+								$excution = '2013-03-20 11:17';
+								$macrography = '2013-03-20 11:17';
+								$sampled = '2013-03-20 11:17';
+								$decipherment = '2013-03-20 11:17';
+								$written = '2013-03-20 11:17';
 
-						echo '<td>' . $Pnum . '</td>';
-						echo '<td>' . $G . '</td>';
-						echo '<td>' . $M . '</td>';
-						echo '<td>' . $V . '</td>';
-						echo '<td>' . $Sresult . '</td>';
-						echo '<td>' . $requested . '</td>';
-						echo '<td>' . $excution . '</td>';
-						echo '<td>' . $macrography . '</td>';
-						echo '<td>' . $sampled . '</td>';
-						echo '<td>' . $decipherment . '</td>';
-						echo '<td>' . $written . '</td>';
-						?>
-					</tr>
-				</table>
+								echo '<td>' . $Pnum . '</td>';
+								echo '<td>' . $G . '</td>';
+								echo '<td>' . $M . '</td>';
+								echo '<td>' . $V . '</td>';
+								echo '<td>' . $Sresult . '</td>';
+								echo '<td>' . $requested . '</td>';
+								echo '<td>' . $excution . '</td>';
+								echo '<td>' . $macrography . '</td>';
+								echo '<td>' . $sampled . '</td>';
+								echo '<td>' . $decipherment . '</td>';
+								echo '<td>' . $written . '</td>';
+								?>
+							</tr>
+						</table>
+				</div>
 			</div>
 		</div>
-	</div>
-	</div>
+			<div class="col-md-7">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="pathology_result_title panel-title">
+					Pathologic Result</br>
+				</div>
+			</div>
+			<div class="panel-body">
+				<p class="text-left">
+					<?php
+					$report = '<병리검사 의뢰서 입력내용>
+1. 채취부위:
+2. 수술명:
+3. 임상진단:
+
+<동결절편 진단>
+
+#1. 동결절편 조직은 6.0 * 1.0 * 0.5cm크기의 조직임.
+동결절편 진단 (#1) : Proximal margin : Presence of carcinoma /HJP/
+#2. 동결절편 조직은 1.2 * 1.0 * 0.5cm 크기의 조직임.
+동결절편 진단 (#2) : Proximal margin : Free of carcinoma /HJP/
+
+<육안소견>
+받은 조직은 모두 3부분임.
+#1. 신성 상태의 전 절제된 위장으로 구성된 위전 절제술 검체임. 검체는 두부분으로 나뉘어져 suture 되어 연결되어 왔음. 대만곡을 따라 열려져 왔으며 위장의 크기는 대만곡을 따라 22.0cm, 소만곡을 따라 14.0cm임. 연결된 십이지장의 길이는 1.5cm, 평균 내경 5.0cm임. 점막면에 전정부, 대만곡을 중심으로 궤양 침은형의 종	괴가 관찰됨. 종괴의 크기는 8.0cm * 8.0cm 이며 원위 절면으로부터 2.5cm, 근위 절면으로부터 6.0cm 떨어져 있음. 그 외 주변 점막에 궤양, 용종, 종괴 등의 다른 특이소견 관찰되지 않음. 연속 절개햐여 대표적 절편을 포매함.';
+
+					//line feed
+					$report = nl2br($report);
+					//change 'tap' to 'space'
+					//$report = str_replace("	", "&nbsp; &nbsp; &nbsp; &nbsp; ", $report);
+					echo $report;
+					?>
+				</p>
+			</div>
+		</div>
 	</div>

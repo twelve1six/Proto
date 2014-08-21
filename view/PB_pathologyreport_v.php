@@ -20,22 +20,18 @@
 				<?php
 if($this->session->userdata('is_login')) {
 				?>
-				<li>
-				<a href="/index.php/PB_proto_c/logout">Log Out</a>
-				</li>
+				<li><a href="/index.php/PB_proto_c/logout">Log Out</a></li>
 				<?php } else { ?>
 				<li>
 					<a href="/index.php/PB_proto_c/login">Log In</a>
 				</li>
 				<?php } ?>
-				<li>
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-				</li>
+				<li> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; </li>
 				<li>
 				<a href="/index.php/PB_proto_c/rsearch">Report Search</a>
 				</li>
-				<li class="active">
-					<a href="/index.php/PB_proto_c/preport">Pathology Report</a>
+				<li>
+				<a href="/index.php/PB_proto_c/preport">Pathology Report</a>
 				</li>
 				<li>
 				<a href="/index.php/PB_proto_c/isearch">Image Search</a>
@@ -49,13 +45,19 @@ if($this->session->userdata('is_login')) {
 				<li>
 				<a href="/index.php/PB_proto_c/messenger">Messenger</a>
 				</li>
-				<li>
-				<a href="/index.php/PB_proto_c/sreport">Send Report</a>
-				</li>
+				<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Send Report<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/index.php/PB_proto_c/sreport_mlclr">Molecular</a></li>
+            <li class="divider"></li>
+            <li><a href="/index.php/PB_proto_c/sreport_if">IF</a></li>
+            <li class="divider"></li>
+            <li><a href="/index.php/PB_proto_c/sreport_em">EM</a></li>
+          </ul>
+        </li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div>
-
 	<div class="container-fluid container-fluid-banner">
 		<div class="banner">
 			Pathologic Report
@@ -78,9 +80,6 @@ if($this->session->userdata('is_login')) {
 			<div class="panel-body">
 				<div class="col-md-5">
 					<form class="form-horizontal" role="form">
-						<!-- <span class="label label-primary">Pathology Number</span> -->
-						<!-- <div class="form-group form-inline"> -->
-						<!-- <div class="col-md-12"> -->
 						<div class="input-group">
 							<input type="text" class="form-control input-sm" id="pathologyNum" placeholder="Pathology Num">
 							<span class="input-group-btn">
@@ -89,11 +88,6 @@ if($this->session->userdata('is_login')) {
 								</button> </span>
 						</div>
 						</br>
-						<!-- </div> -->
-						<!-- </div> -->
-						<!-- <span class="label label-primary">Reception Number</span> -->
-						<!-- <div class="form-group form-inline"> -->
-						<!-- <div class="col-md-12"> -->
 						<div class="input-group">
 							<input type="text" class="form-control input-sm" id="receptionNum" placeholder="Reception Num">
 
@@ -101,9 +95,7 @@ if($this->session->userdata('is_login')) {
 								<button type="submit" class="btn btn-primary btn-sm">
 									PACS
 								</button> </span>
-							<!-- </div> -->
 						</div>
-						<!-- </div> -->
 				</div>
 				<div class="col-md-7">
 					<div class="table-responsive">
@@ -243,7 +235,7 @@ if($this->session->userdata('is_login')) {
 					</div>
 					</form>
 				</div>
-				<div class="btn-group col-md-offset-5">
+				<div class="btn-group">
 					<button type="button" class="btn btn-primary">
 						+ Public Library
 					</button>

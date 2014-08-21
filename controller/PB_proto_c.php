@@ -89,7 +89,7 @@ class PB_proto_c extends CI_Controller {
 		//bring image(now, modify thumnail in view file *recommended save modified image later)
 		$id=14;
 		$fcode  = $this->PB_proto_m->getImage($id);
-		$this->load->view('PB_image_v',$fcode);
+		$this->load->view('PB_Pimage_v',$fcode);
 		
 		$this -> load -> view('PB_footer_v');
 	}
@@ -103,6 +103,12 @@ class PB_proto_c extends CI_Controller {
 		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_imagesearch_v');
+		
+		//bring image(now, modify thumnail in view file *recommended save modified image later)
+		$id=14;
+		$fcode = $this->PB_proto_m->getImage($id);
+		$this->load->view('PB_Iimage_v',$fcode);
+		
 		$this -> load -> view('PB_footer_v');
 	}
 
@@ -145,7 +151,7 @@ class PB_proto_c extends CI_Controller {
 		$this -> load -> view('PB_footer_v');
 	}
 
-	public function sreport() {
+	public function sreport_mlclr() {
 		
 		//if someone's not logged in yet, move to login page
 		if ($this->session->userdata('is_login') == FALSE) {
@@ -153,8 +159,31 @@ class PB_proto_c extends CI_Controller {
 			redirect('/PB_proto_c/login');
 		}
 		$this -> load -> view('PB_head_v');
-		$this -> load -> view('PB_menu_v');
-		$this -> load -> view('PB_banner_v');
+		$this -> load -> view('PB_sendreportMlclr_v');
+		$this -> load -> view('PB_footer_v');
+	}
+	
+		public function sreport_if() {
+		
+		//if someone's not logged in yet, move to login page
+		if ($this->session->userdata('is_login') == FALSE) {
+			$this -> load -> helper('url');
+			redirect('/PB_proto_c/login');
+		}
+		$this -> load -> view('PB_head_v');
+		$this -> load -> view('PB_sendreportIf_v');
+		$this -> load -> view('PB_footer_v');
+	}
+		
+			public function sreport_em() {
+		
+		//if someone's not logged in yet, move to login page
+		if ($this->session->userdata('is_login') == FALSE) {
+			$this -> load -> helper('url');
+			redirect('/PB_proto_c/login');
+		}
+		$this -> load -> view('PB_head_v');
+		$this -> load -> view('PB_sendreportEm_v');
 		$this -> load -> view('PB_footer_v');
 	}
 
