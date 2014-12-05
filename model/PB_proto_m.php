@@ -33,4 +33,15 @@ class PB_proto_m extends CI_Model {
 		//return fcode of a row
 		return $this->db->get_where('TEST',array('id'=>$id))->row($comment);	
 	}
+	
+	function add($option)
+    {
+        $this->db->set('email', $option['email']);
+        $this->db->set('pw', $option['pw']);
+		$this->db->set('id', $option['id']);
+        $this->db->set('created', 'getdate()', false);
+        $this->db->insert('UserInfo');
+        $result = $this->db->insert_id();
+        return $result;
+    } 
 }

@@ -45,8 +45,8 @@ if($this->session->userdata('is_login')) {
 				<li>
 				<a href="/index.php/PB_proto_c/messenger">Messenger</a>
 				</li>
-				<li class="dropdown active">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Send Report <span class="caret"></span></a>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Send Report<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li>
 							<a href="/index.php/PB_proto_c/sreport_mlclr">Molecular</a>
@@ -62,76 +62,82 @@ if($this->session->userdata('is_login')) {
 					</ul>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-					<li>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active">
 						<a href="/index.php/PB_proto_c/signup">Sign Up</a>
 					</li>
 				</ul>
 		</div><!-- /.navbar-collapse -->
 	</div>
-
 	<div class="container-fluid container-fluid-banner">
 		<div class="banner">
-			Electron Microscope
+			Sign Up
 		</div>
 	</div>
 	<div class="row">
 		&nbsp;
 	</div>
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="row">
+		&nbsp;
+	</div>
 
-	<div class="col-md-5">
-		<div class="col-md-7">
-			<div class="panel panel-info">
-				<div class="panel-heading">
-					<div class="filter_title panel-title">
-						Search Filter</br>
-					</div>
-				</div>
-				<div class="panel-body">
-					<form class="form-inline" role="form">
-						<div class="form-group">
-							<div class='input-group input-group-sm date form_date' id='from_date' data-date-format="yyyy-mm-dd" data-link-field="from_date" data-link-format="yyyy-mm-dd" >
-								<input type='text' class="form-control input-sm" size="8" placeholder="From" />
-								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> </span>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class='input-group input-group-sm date form_date' id='to_date' data-date-format="yyyy-mm-dd" data-link-field="to_date" data-link-format="yyyy-mm-dd">
-								<input type='text' class="form-control input-sm" size="8" placeholder="To"/>
-								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> </span>
-							</div>
-						</div>
-						<div class="row">
-							&nbsp;
-						</div>
-					</form>
-					<form class="form-horizontal" role="form">
-
-						<div class="form-group">
-							<div class="col-md-7">
-								<span class="label label-primary">Hospital</span>
-								<select class="form-control input-sm">
-									<option> Seoul Univ. </option>
-									<option> Ajou Univ. </option>
-									<option> Busan Univ. </option>
-									<option> Donga Univ. </option>
-								</select>
-							</div>
-						</div>
-
-						<span class="label label-primary">Pathology Number</span>
-						<form class="form-inline" role="from">
-							<div class="form-group">
-								<div class="col-md-7">
-									<input type="text" class="form-control input-sm" id="pathologyNum" placeholder="Pathology Number">
-								</div>
-
-								<button type="submit" class="btn btn-primary btn-sm search">
-									Search
-								</button>
-						</form>
-				</div>
+	<form class="form-horizontal" role="form" action="/index.php/PB_proto_c/signup" method="post">
+		<!-- check validation_error -->
+		<?php echo validation_errors(); ?>
+		<div class="form-group">
+			<label for="id" class="col-sm-5 control-label">ID</label>
+			<div class="col-sm-2">
+				<!-- set value for submitted data(id) -->
+				<input type="id" class="form-control" id="id" placeholder="ID" name="id" value="<?php echo set_value('id'); ?>">
 			</div>
 		</div>
-	</div>
-	
+		<div class="form-group">
+			<label for="pw" class="col-sm-5 control-label">Password</label>
+			<div class="col-sm-2">
+				<!-- set value for submitted data(pw) -->
+				<input type="password" class="form-control" id="pw" placeholder="Password" name="pw" value="<?php echo set_value('pw'); ?>">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="re_password" class="col-sm-5 control-label">Password Check</label>
+			<div class="col-sm-2">
+				<!-- set value for submitted data(re_pw) -->
+				<input type="password" class="form-control" id="re_password" placeholder="Password Check" name="re_password" value="<?php echo set_value('re_password'); ?>">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="email" class="col-sm-5 control-label">E-mail</label>
+			<div class="col-sm-2">
+				<!-- set value for submitted data(email) -->
+				<input type="email" class="form-control" id="email" placeholder="E-mail" name="email" value="<?php echo set_value('email'); ?>">
+			</div>
+		</div>
+		</br>
+		<div class="form-group">
+			<div class="col-sm-offset-5 col-sm-6">
+				&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				<button type="submit" class="btn btn-primary btn-lg">
+					Sign Up
+				</button>
+			</div>
+		</div>
+	</form>
+</nav>

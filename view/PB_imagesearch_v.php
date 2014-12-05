@@ -56,6 +56,11 @@ if($this->session->userdata('is_login')) {
           </ul>
         </li>
 			</ul>
+			<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="/index.php/PB_proto_c/signup">Sign Up</a>
+					</li>
+				</ul>
 		</div><!-- /.navbar-collapse -->
 	</div>
 

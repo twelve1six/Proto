@@ -11,10 +11,43 @@ class PB_proto_c extends CI_Controller {
 	}
 
 	public function index() {
+		//if someone's not logged in yet, move to login page
+		if ($this -> session -> userdata('is_login') == FALSE) {
+			redirect('/PB_proto_c/login');
+		}
 		$this -> load -> view('PB_head_v');
-		$this -> load -> view('PB_menu_v');
-		$this -> load -> view('PB_banner_v');
+		$this -> load -> view('PB_reportsearch_v');
 		$this -> load -> view('PB_footer_v');
+	}
+
+	public function signup() {
+		$this -> load -> helper('form');
+		$this -> load -> library('form_validation');
+
+		//check form validation by form_validation lib in CI
+		$this -> form_validation -> set_rules('email', 'email address', 'required|valid_email|is_unique[UserInfo.email]');
+		$this -> form_validation -> set_rules('id', 'ID', 'required|min_length[5]|max_length[12]');
+		$this -> form_validation -> set_rules('pw', 'password', 'required|min_length[6]|max_length[30]|matches[re_password]');
+		$this -> form_validation -> set_rules('re_password', 'password check', 'required');
+
+		if ($this -> form_validation -> run() === false) {
+
+			$this -> load -> view('PB_head_v');
+			$this -> load -> view('PB_signup_v');
+			$this -> load -> view('PB_footer_v');
+		} else {
+			if(!function_exists('password_hash')){
+            $this->load->helper('password');
+        }
+			$hash = password_hash($this -> input -> post('pw'), PASSWORD_BCRYPT);
+
+			$this -> load -> model('PB_proto_m');
+			$this -> PB_proto_m -> add(array('email' => $this -> input -> post('email'), 'pw' => $hash, 'id' => $this -> input -> post('id')));
+
+			$this -> session -> set_flashdata('message', '회원가입에 성공했습니다.');
+			$this -> load -> helper('url');
+			redirect('/PB_proto_c/login');
+		}
 	}
 
 	public function login() {
@@ -28,13 +61,12 @@ class PB_proto_c extends CI_Controller {
 		if ($this -> form_validation -> run() == FALSE) {
 
 			$this -> load -> view('PB_head_v');
-			$this -> load -> view('PB_login_v');
+			//give returnURL to PB_login_v
+			$this -> load -> view('PB_login_v', array('returnURL'=>$this->input->get('returnURL')));
 			$this -> load -> view('PB_footer_v');
 		} else {
 			redirect('/PB_proto_c/authentication');
 		}
-
-		// $this -> load -> view('PB_footer_v');
 	}
 
 	public function logout() {
@@ -47,20 +79,21 @@ class PB_proto_c extends CI_Controller {
 		$postid = $this -> input -> post('userid');
 		$postpw = $this -> input -> post('userpw');
 		$dbpw = $this -> PB_proto_m -> userpw($this -> input -> post('userid'));
-		//var_dump($chkuser); ckuser
-		echo $postid;
-		echo $postpw;
-		echo $dbpw;
-		if (strcmp($dbpw, $postpw) == 0) {
-			echo "1Log in Success";
+		
+		//get helper(password)
+		$this->load->helper('password');
+		//check password based on hash
+		if(password_verify($postpw, $dbpw)) {
 			$this -> session -> set_userdata('is_login', true);
-			echo strcmp($dbpw, $postpw);
-			redirect('/PB_proto_c/');
+			$returnURL = $this->input->get('returnURL');
+			if($returnURL === false) {
+				$returnURL = '/PB_proto_c/';
+			}
+			redirect($returnURL ? $returnURL : '/');
 		} else {
 			$this -> session -> set_flashdata('message', 'Login Failed');
-			echo "Log in Failed";
-			echo strcmp($dbpw, $postpw);
 			redirect('/PB_proto_c/login');
+			
 		}
 	}
 
@@ -68,8 +101,7 @@ class PB_proto_c extends CI_Controller {
 
 		//if someone's not logged in yet, move to login page
 		if ($this -> session -> userdata('is_login') == FALSE) {
-			$this -> load -> helper('url');
-			redirect('/PB_proto_c/login');
+			redirect('/PB_proto_c/login?returnURL='.rawurlencode(site_url('/PB_proto_c/rsearch')));
 		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_reportsearch_v');
@@ -80,8 +112,7 @@ class PB_proto_c extends CI_Controller {
 
 		//if someone's not logged in yet, move to login page
 		if ($this -> session -> userdata('is_login') == FALSE) {
-			$this -> load -> helper('url');
-			redirect('/PB_proto_c/login');
+			redirect('/PB_proto_c/login?returnURL='.rawurlencode(site_url('/PB_proto_c/preport')));
 		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_pathologyreport_v');
@@ -98,8 +129,7 @@ class PB_proto_c extends CI_Controller {
 
 		//if someone's not logged in yet, move to login page
 		if ($this -> session -> userdata('is_login') == FALSE) {
-			$this -> load -> helper('url');
-			redirect('/PB_proto_c/login');
+			redirect('/PB_proto_c/login?returnURL='.rawurlencode(site_url('/PB_proto_c/isearch')));
 		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_imagesearch_v');
@@ -116,8 +146,7 @@ class PB_proto_c extends CI_Controller {
 
 		//if someone's not logged in yet, move to login page
 		if ($this -> session -> userdata('is_login') == FALSE) {
-			$this -> load -> helper('url');
-			redirect('/PB_proto_c/login');
+			redirect('/PB_proto_c/login?returnURL='.rawurlencode(site_url('/PB_proto_c/prvlibrary')));
 		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_menu_v');
@@ -129,8 +158,7 @@ class PB_proto_c extends CI_Controller {
 
 		//if someone's not logged in yet, move to login page
 		if ($this -> session -> userdata('is_login') == FALSE) {
-			$this -> load -> helper('url');
-			redirect('/PB_proto_c/login');
+			redirect('/PB_proto_c/login?returnURL='.rawurlencode(site_url('/PB_proto_c/Pbllibrary')));
 		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_menu_v');
@@ -142,8 +170,7 @@ class PB_proto_c extends CI_Controller {
 
 		//if someone's not logged in yet, move to login page
 		if ($this -> session -> userdata('is_login') == FALSE) {
-			$this -> load -> helper('url');
-			redirect('/PB_proto_c/login');
+			redirect('/PB_proto_c/login?returnURL='.rawurlencode(site_url('/PB_proto_c/messenger')));
 		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_menu_v');
@@ -155,12 +182,18 @@ class PB_proto_c extends CI_Controller {
 
 		//if someone's not logged in yet, move to login page
 		if ($this -> session -> userdata('is_login') == FALSE) {
-			$this -> load -> helper('url');
-			redirect('/PB_proto_c/login');
+			redirect('/PB_proto_c/login?returnURL='.rawurlencode(site_url('/PB_proto_c/sreport_mlclr')));
 		}
 		$this -> load -> view('PB_head_v');
-		$this -> load -> view('PB_sendreportMlclr_v');
-		
+		$this -> load -> view('PB_sendreportMlclr1_v');
+
+		//bring image(now, modify thumnail in view file *recommended save modified image later)
+		$id = 14;
+		$fcode = $this -> PB_proto_m -> getImage($id);
+		//send image code
+		$this -> load -> view('PB_send_v', $fcode);
+		$this -> load -> view('PB_sendreportMlclr2_v');
+
 		//update and get comment
 		if ($_POST != null) {
 			$comment = $this -> input -> post('comment', TRUE);
@@ -171,7 +204,7 @@ class PB_proto_c extends CI_Controller {
 		}
 		$id = 14;
 		$comment = $this -> PB_proto_m -> getComment($id);
-		$this -> load -> view('comment', $comment);
+		$this -> load -> view('PB_comment_v', $comment);
 
 		$this -> load -> view('PB_footer_v');
 	}
@@ -180,12 +213,17 @@ class PB_proto_c extends CI_Controller {
 
 		//if someone's not logged in yet, move to login page
 		if ($this -> session -> userdata('is_login') == FALSE) {
-			$this -> load -> helper('url');
-			redirect('/PB_proto_c/login');
+			redirect('/PB_proto_c/login?returnURL='.rawurlencode(site_url('/PB_proto_c/sreport_if')));
 		}
 		$this -> load -> view('PB_head_v');
-		$this -> load -> view('PB_sendreportIf_v');
-		
+		$this -> load -> view('PB_sendreportIf1_v');
+		//bring image(now, modify thumnail in view file *recommended save modified image later)
+		$id = 14;
+		$fcode = $this -> PB_proto_m -> getImage($id);
+		//send image code
+		$this -> load -> view('PB_send_v', $fcode);
+		$this -> load -> view('PB_sendreportIf2_v');
+
 		//update and get comment
 		if ($_POST != null) {
 			$comment = $this -> input -> post('comment', TRUE);
@@ -196,7 +234,7 @@ class PB_proto_c extends CI_Controller {
 		}
 		$id = 14;
 		$comment = $this -> PB_proto_m -> getComment($id);
-		$this -> load -> view('comment', $comment);
+		$this -> load -> view('PB_comment_v', $comment);
 
 		$this -> load -> view('PB_footer_v');
 	}
@@ -205,15 +243,15 @@ class PB_proto_c extends CI_Controller {
 
 		//if someone's not logged in yet, move to login page
 		if ($this -> session -> userdata('is_login') == FALSE) {
-			$this -> load -> helper('url');
-			redirect('/PB_proto_c/login');
+			redirect('/PB_proto_c/login?returnURL='.rawurlencode(site_url('/PB_proto_c/sreport_em')));
 		}
 		$this -> load -> view('PB_head_v');
 		$this -> load -> view('PB_sendreportEm1_v');
 		//bring image(now, modify thumnail in view file *recommended save modified image later)
 		$id = 14;
 		$fcode = $this -> PB_proto_m -> getImage($id);
-		$this -> load -> view('send',$fcode);
+		//send image code
+		$this -> load -> view('PB_send_v', $fcode);
 		$this -> load -> view('PB_sendreportEm2_v');
 
 		//update and get comment
@@ -226,7 +264,7 @@ class PB_proto_c extends CI_Controller {
 		}
 		$id = 14;
 		$comment = $this -> PB_proto_m -> getComment($id);
-		$this -> load -> view('comment', $comment);
+		$this -> load -> view('PB_comment_v', $comment);
 
 		$this -> load -> view('PB_footer_v');
 	}
@@ -234,54 +272,4 @@ class PB_proto_c extends CI_Controller {
 	public function sampleD() {
 		$this -> load -> view('PB_sampleD_v');
 	}
-	
-	
-	//send data between web servers
-	public function post_request($url, $data) {
-	// Convert the data array into URL Parameters like a=b&foo=bar etc.
-	$data = http_build_query($data);
-
-	// parse the given URL
-	$url = parse_url($url);
-
-	if ($url['scheme'] != 'http') {
-		return "Error:Only HTTP request are supported!";
-	}
-
-
-	// extract host and path:
-	$host = $url['host'];
-	$path = $url['path'];
-	$res = '';
-
-	// open a socket connection on port 80 - timeout: 300 sec
-	if ($fp = fsockopen($host, 80, $errno, $errstr, 300)) {
-		$reqBody = $data;
-		$reqHeader = "POST $path HTTP/1.1\r\n" . "Host: $host\r\n";
-		$reqHeader .= "Content-type: application/x-www-form-urlencoded\r\n"
-		. "Content-length: " . strlen($reqBody) . "\r\n"
-		. "Connection: close\r\n\r\n";
-
-		/* send request */
-		fwrite($fp, $reqHeader);
-		fwrite($fp, $reqBody);
-
-		while(!feof($fp)) {
-			$res .= fgets($fp, 1024);
-		}
-
-		fclose($fp);
-	} else {
-		return "Error:Cannot Connect!";
-	}
-
-	// split the result header from the content
-	$result = explode("\r\n\r\n", $res, 2);
-
-	$header = isset($result[0]) ? $result[0] : '';
-	$content = isset($result[1]) ? $result[1] : '';
-
-	return $content;
-}
-
 }
